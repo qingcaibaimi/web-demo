@@ -6,8 +6,8 @@ MAINTAINER xgq
 
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo 'Asia/Shanghai' >/etc/timezone
-add /var/lib/jenkins/workspace/jdk-8u411-linux-x64.tar.gz /usr/local/
-add /var/lib/jenkins/workspace/apache-tomcat-9.0.96.tar.gz /usr/local/
+add jdk-8u411-linux-x64.tar.gz /usr/local/
+add apache-tomcat-9.0.96.tar.gz /usr/local/
 #RUN rm -f /usr/local/apache-tomcat-9.0.96/webapps/ROOT/favicon.ico
 #RUN mkdir -p /data
 env JAVA_HOME=/usr/local/jdk1.8.0_411
@@ -16,7 +16,7 @@ env CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 env PATH=${JAVA_HOME}/bin:$PATH
 env CATALINA_HOME=/usr/local/apache-tomcat-9.0.96
 env LC_ALL=en_US.UTF-8
-ADD /var/lib/jenkins/workspace/demo1/* /usr/local/apache-tomcat-9.0.96/webapps/
+ADD test /usr/local/apache-tomcat-9.0.96/webapps/
 
 expose 8080
 
