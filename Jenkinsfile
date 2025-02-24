@@ -24,6 +24,8 @@ pipeline{
         stage('step2:build image'){
             steps {
                sh 'pwd && ls -alh'
+               sh 'cp /opt/dockerfile/apache-tomcat-9.0.96.tar.gz .'
+               sh 'cp /opt/dockerfile/jdk-8u411-linux-x64.tar.gz .'
                sh 'docker build -t ${IMAGE_NAME} .'
             }
         }
