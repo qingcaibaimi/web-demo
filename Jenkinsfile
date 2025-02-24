@@ -49,7 +49,7 @@ pipeline{
                 sh """
                     sed -i "s#tomcat-test-image#${IMAGE_NAME}#g" deployment.yaml
                     sed -i "s#tomcattest-version#${TOMCAT_VERSION}#g" deployment.yaml
-                    kubectl apply --kubeconfig=/root/.kube/config -f deployment.yaml --namespace=${K8S_NAMESPACE}
+                    kubectl apply -f deployment.yaml --namespace=${K8S_NAMESPACE}
                     """
             }
         }
