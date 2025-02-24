@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: tomcattest-deploy-v3
-  name: tomcattest-deploy-v3
+    app: tomcattest-deploy-vtomcat_version
+  name: tomcattest-deploy-vtomcat_version
   namespace: dev
 spec:
   replicas: 2
@@ -17,9 +17,9 @@ spec:
         app: tomcattest
     spec:
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/xgq-dockerimages/tomcat-test:12
+      - image: tomcat-test-image
         imagePullPolicy: IfNotPresent
-        name: tomcattest-v3
+        name: tomcattest-vtomcat_version
         ports:
         - containerPort: 8080
         volumeMounts:
