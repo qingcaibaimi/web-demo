@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: tomcattest-deploy-vtomcat_version
-  name: tomcattest-deploy-vtomcat_version
+    app: tomcattest-deploy-vtomcat-version
+  name: tomcattest-deploy-vtomcat-version
   namespace: dev
 spec:
   replicas: 2
@@ -19,7 +19,7 @@ spec:
       containers:
       - image: tomcat-test-image
         imagePullPolicy: IfNotPresent
-        name: tomcattest-vtomcat_version
+        name: tomcattest-vtomcat-version
         ports:
         - containerPort: 8080
         volumeMounts:
