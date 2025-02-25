@@ -22,13 +22,5 @@ spec:
         name: tomcat-test-version
         ports:
         - containerPort: 8080
-        volumeMounts:
-        - mountPath: /usr/local/apache-tomcat-9.0.96/webapps/
-          name: tomcat-web
-          readOnly: false
-      volumes:
-      - name: tomcat-web
-        hostPath:
-          path: /opt/tomcat-web
       imagePullSecrets:
       - name: aliyun-xgq
