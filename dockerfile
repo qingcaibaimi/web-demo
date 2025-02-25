@@ -16,7 +16,7 @@ env CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 env PATH=${JAVA_HOME}/bin:$PATH
 env CATALINA_HOME=/usr/local/apache-tomcat-9.0.96
 env LC_ALL=en_US.UTF-8
-ADD test /usr/local/apache-tomcat-9.0.96/webapps/
+ADD test /usr/local/apache-tomcat-9.0.96/webapps/test/
 
 expose 8080
 
