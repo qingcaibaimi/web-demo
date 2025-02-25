@@ -29,29 +29,5 @@ pipeline{
                sh 'docker build -t ${IMAGE_NAME} .'
             }
         }
-
-       stage('step3:push image'){
-            steps {
-                withCredentials([[$class: 'UsernamePasswordMultiBinding',
-                credentialsId: 'aliyun',
-                usernameVariable: 'REGISTRY_USERNAME',
-                passwordVariable: 'REGISTRY_PASSWORD']]) {
-                sh """
-                    docker login -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD} ${REGISTRY}
-                    docker push ${IMAGE_NAME}
-                    docker rmi ${IMAGE_NAME}
-                    """
-                }
-            }
-        }
-        stage('step4:deployment'){
-            steps {
-                sh """
-                    sed -i "s#tomcat-test-image#${IMAGE_NAME}#g" deployment.yaml
-                    sed -i "s#tomcat-test-version#${TOMCAT_VERSION}#g" deployment.yaml
-                    kubectl apply -f deployment.yaml --namespace=${K8S_NAMESPACE}
-                    """
-            }
-        }
     }
 }
