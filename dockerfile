@@ -8,7 +8,7 @@ RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo 'Asia/Shanghai' >/etc/timezone
 add jdk-8u411-linux-x64.tar.gz /usr/local/
 add apache-tomcat-9.0.96.tar.gz /usr/local/
-RUN rm -f /usr/local/apache-tomcat-9.0.96/webapps/*
+RUN rm -rf /usr/local/apache-tomcat-9.0.96/webapps/*
 #RUN mkdir -p /data
 env JAVA_HOME=/usr/local/jdk1.8.0_411
 env JRE_HOME=${JAVA_HOME}/jre
